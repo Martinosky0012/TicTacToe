@@ -1,9 +1,12 @@
-import Controlador.GameController;
-import Model.Board;
+import TicTacToeController.*;
+import TicTacToeModel.*;
+import TicTacToeView.*;
+
 public class Main {
     public static void main(String[] args) {
-        Board model = new Board();
-        GameController controller= new GameController();
+        TicTacToeModel model = new TicTacToeModel();
+        TicTacToeView view = new TicTacToeView();
+        TicTacToeController controller = new TicTacToeController(model, view);
     }
 
 
