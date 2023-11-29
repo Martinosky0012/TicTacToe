@@ -18,5 +18,18 @@ public class TicTacToeModel {
     public char[][] getBoard() {
         return board;
     }
+    public char getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public void switchPlayer() {
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+    public boolean makeMove(int row, int col) {
+        if (board[row][col] == ' ') {
+            board[row][col] = currentPlayer;
+            return true;
+        }
+        return false;
+    }
 }
 

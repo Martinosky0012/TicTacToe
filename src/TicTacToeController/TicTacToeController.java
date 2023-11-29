@@ -19,7 +19,25 @@ public class TicTacToeController {
             view.displayBoard(model.getBoard());
             int row, col;
 
+            do {
+                System.out.println("Player " + model.getCurrentPlayer() + ", enter your move (row and column) numbers from 1 to 3 separated by a space: ");
+                row = scanner.nextInt()-1;
+                col = scanner.nextInt()-1;
+
+            } while (!isValidMove(row, col));
+
+            model.makeMove(row, col);
+
+            if (isGameFinished()!=-1) {
+                view.displayBoard(model.getBoard());
+                view.displayMessage(getGameResult());
+                break;
+            }
+
+            model.switchPlayer();
         } while (isGameFinished()==-1);
+
+        scanner.close();
     }
     private boolean isValidMove(int row, int col) {
         return (row >= 0 && row < 3 && col >= 0 && col < 3 && model.getBoard()[row][col] == ' ');
@@ -64,5 +82,17 @@ public class TicTacToeController {
         }
 
         return -1; // Game still ongoing
+    }
+    private String getGameResult() {
+        int result = isGameFinished();
+
+        if (result == 1) {
+            return "Player " + model.getCurrentPlayer() + " wins!";
+        } else if (result == 0) {
+            return "It's a draw!";
+        } else {
+            return "Game still ongoing...";
+        }
+
     }
 }
