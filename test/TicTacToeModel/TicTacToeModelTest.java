@@ -29,14 +29,28 @@ class TicTacToeModelTest {
 
     }
     @Test
-    void getCurrentPlayer() {
+    void correctPlayerName() {
+        boolean correctName= (model.getCurrentPlayer()=='X' || model.getCurrentPlayer()=='O');
+       assertTrue(correctName);
     }
 
     @Test
     void switchPlayer() {
+        char player=model.getCurrentPlayer();
+        correctPlayerName();
+        model.switchPlayer();
+        assertNotEquals(player,model.getCurrentPlayer());
+        correctPlayerName();
     }
 
     @Test
     void makeMove() {
+        char iniPlayer=model.getCurrentPlayer();
+        model.makeMove(2,2);
+        assertEquals(iniPlayer,model.getBoard()[2][2]);
+    }
+
+    @Test
+    void getBoard() {
     }
 }
