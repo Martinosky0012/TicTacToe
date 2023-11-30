@@ -81,6 +81,13 @@ class TicTacToeControllerTest {
         TicTacToeView view1=new TicTacToeView();
         TicTacToeController controller1=new TicTacToeController(model1,view1);
         assertEquals(-1,controller1.isGameFinished());
+        char[][]  b1={{'X','O','X'},
+                    {'O','O','X'},
+                    {'X',' ','O'}};
+         model1=new TicTacToeModel(b1);
+         view1=new TicTacToeView();
+         controller1=new TicTacToeController(model1,view1);
+        assertEquals(-1,controller1.isGameFinished());
     }
 
 }
