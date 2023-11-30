@@ -16,7 +16,7 @@ public class TicTacToeController {
         Scanner scanner = new Scanner(System.in);
         //Game loop
         do {
-            view.displayBoard(model.getBoard());
+            view.displayBoard(model.getM_board());
             int row, col;
 
             do {
@@ -31,7 +31,7 @@ public class TicTacToeController {
             model.makeMove(row, col);
 
             if (isGameFinished()!=-1) {
-                view.displayBoard(model.getBoard());
+                view.displayBoard(model.getM_board());
                 view.displayMessage(getGameResult());
                 break;
             }
@@ -42,10 +42,10 @@ public class TicTacToeController {
         scanner.close();
     }
     protected boolean isValidMove(int row, int col) {
-        return (row >= 0 && row < 3 && col >= 0 && col < 3 && model.getBoard()[row][col] == ' ');
+        return (row >= 0 && row < 3 && col >= 0 && col < 3 && model.getM_board()[row][col] == ' ');
     }
     protected int isGameFinished() {// 1: win, 0: draw, -1: not finished
-        char[][] board = model.getBoard();
+        char[][] board = model.getM_board();
 
         // Check rows, columns, and diagonals for a win
         for (int i = 0; i < 3; i++) {

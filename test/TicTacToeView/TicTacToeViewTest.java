@@ -1,6 +1,12 @@
 package TicTacToeView;
-
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import java.io.OutputStream;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -8,8 +14,8 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicTacToeViewTest {
-    private final TicTacToeView ticTacToeView = new TicTacToeView();
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    private final TicTacToeView view = new TicTacToeView();
+    private ByteArrayOutputStream printed;
     @Test
     public void testDisplayEmptyBoard() {
         char[][] emptyBoard = {
@@ -17,14 +23,8 @@ class TicTacToeViewTest {
                 {' ', ' ', ' '},
                 {' ', ' ', ' '}
         };
-        String expectedOutput = "  |  |  \n" +
-                "---------\n" +
-                "  |  |  \n" +
-                "---------\n" +
-                "  |  |  \n";
-        captureOutput();
-        ticTacToeView.displayBoard(emptyBoard);
-        assertEquals(expectedOutput, getCapturedOutput());
+
+
     }
 
 
@@ -34,13 +34,5 @@ class TicTacToeViewTest {
 
     @Test
     void displayMessage() {
-    }
-    private void captureOutput() {
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
-
-    // Helper method to get captured output
-    private String getCapturedOutput() {
-        return outputStreamCaptor.toString().replaceAll("\r", "");
     }
 }

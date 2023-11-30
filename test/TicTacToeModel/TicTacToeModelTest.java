@@ -15,15 +15,15 @@ class TicTacToeModelTest {
     @Test
     void TestBoardSize() {
 
-        assertEquals( 3,model.getBoard().length);
-        assertEquals(3,model.getBoard()[1].length);
+        assertEquals( 3,model.getM_board().length);
+        assertEquals(3,model.getM_board()[1].length);
     }
 
     @Test
     void initializeBoardTest() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                assertEquals(' ', model.getBoard()[i][j]);
+                assertEquals(' ', model.getM_board()[i][j]);
             }
         }
 
@@ -47,10 +47,9 @@ class TicTacToeModelTest {
     void makeMove() {
         char iniPlayer=model.getCurrentPlayer();
         model.makeMove(2,2);
-        assertEquals(iniPlayer,model.getBoard()[2][2]);
+        assertEquals(iniPlayer,model.getM_board()[2][2]);
     }
 
-    @Test
-    void getBoard() {
-    }
+
+
 }
