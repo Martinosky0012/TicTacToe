@@ -21,7 +21,7 @@ class TicTacToeViewTest {
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
-        // Initialize your Tic Tac Toe game and set up the board state
+        //  Set up the board state
         TicTacToeView game = new TicTacToeView();
         char[][] testBoard = {
                 {'X', 'O', 'X'},
@@ -38,17 +38,9 @@ class TicTacToeViewTest {
         // capture output and compare it with the expected output
         String actualOutput = outputStreamCaptor.toString();
         assertEquals(expectedOutput, actualOutput);
-        /*char[][] emptyBoard = {
-                {' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}};*/
 
     }
 
-
-    @Test
-    void displayBoard() {
-    }
 
     @Test
     void displayMessage() {

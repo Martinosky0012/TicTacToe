@@ -23,7 +23,7 @@ class TicTacToeControllerTest {
 
 }
     @Test
-    void TestWinXHorizontal() {
+    void TestWinHorizontal() {
         char[][] b={{'X','X','X'},
                     {' ',' ',' '},
                     {' ',' ',' '}};
@@ -33,7 +33,7 @@ class TicTacToeControllerTest {
         assertEquals(1,controller1.isGameFinished());
     }
     @Test
-    void TestWinXVertical() {
+    void TestWinVertical() {
         char[][] b={{' ',' ','X'},
                     {' ','O','X'},
                     {' ',' ','X'}};
@@ -44,7 +44,7 @@ class TicTacToeControllerTest {
     }
 
 @Test
-    void TestWinXDiagonal() {
+    void TestWinDiagonal() {
         char[][] b={{' ',' ','X'},
                     {' ','X',' '},
                     {'X',' ',' '}};

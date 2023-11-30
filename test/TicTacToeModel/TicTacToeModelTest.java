@@ -20,7 +20,7 @@ class TicTacToeModelTest {
     }
 
     @Test
-    void initializeBoardTest() {
+    void TestinitializeBoard() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 assertEquals(' ', model.getM_board()[i][j]);
