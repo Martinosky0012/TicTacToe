@@ -24,12 +24,12 @@ public class TicTacToeModel {
     public void switchPlayer() {
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
-    public boolean makeMove(int row, int col) {
+    public void makeMove(int row, int col) {
         if (board[row][col] == ' ') {
             board[row][col] = currentPlayer;
-            return true;
+
         }
-        return false;
+
     }
 }
 

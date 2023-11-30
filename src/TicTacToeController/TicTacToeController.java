@@ -23,7 +23,9 @@ public class TicTacToeController {
                 System.out.println("Player " + model.getCurrentPlayer() + ", enter your move (row and column) numbers from 1 to 3 separated by a space: ");
                 row = scanner.nextInt()-1;
                 col = scanner.nextInt()-1;
-
+                if(!isValidMove(row, col)){
+                    System.out.println("Ilegal move, Try again!");
+                }
             } while (!isValidMove(row, col));
 
             model.makeMove(row, col);
@@ -39,10 +41,10 @@ public class TicTacToeController {
 
         scanner.close();
     }
-    private boolean isValidMove(int row, int col) {
+    protected boolean isValidMove(int row, int col) {
         return (row >= 0 && row < 3 && col >= 0 && col < 3 && model.getBoard()[row][col] == ' ');
     }
-    private int isGameFinished() {// 1: win, 0: draw, -1: not finished
+    protected int isGameFinished() {// 1: win, 0: draw, -1: not finished
         char[][] board = model.getBoard();
 
         // Check rows, columns, and diagonals for a win
